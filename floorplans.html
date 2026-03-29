@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Community Center — Annotated Floor Plans</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: #f5f5f5; color: #333; }
+  .page-header { background: #2c3e50; color: #fff; padding: 30px 40px; text-align: center; }
+  .page-header h1 { font-size: 28px; margin-bottom: 5px; }
+  .page-header p { font-size: 14px; opacity: 0.8; }
+  .color-legend { max-width: 900px; margin: 25px auto; background: #fff; border-radius: 8px; padding: 20px 30px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+  .color-legend h3 { margin-bottom: 12px; font-size: 16px; }
+  .legend-grid { display: flex; flex-wrap: wrap; gap: 8px 16px; }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 13px; }
+  .legend-swatch { width: 18px; height: 18px; border-radius: 3px; border: 1px solid rgba(0,0,0,0.15); flex-shrink: 0; }
+  .model-section { max-width: 900px; margin: 35px auto; }
+  .model-title { background: #34495e; color: #fff; padding: 14px 25px; border-radius: 8px 8px 0 0; font-size: 20px; }
+  .floor-card { background: #fff; border: 1px solid #ddd; margin-bottom: 2px; padding: 20px; }
+  .floor-card:last-child { border-radius: 0 0 8px 8px; margin-bottom: 0; }
+  .floor-card h3 { font-size: 16px; color: #2c3e50; margin-bottom: 15px; border-bottom: 2px solid #ecf0f1; padding-bottom: 8px; }
+  .plan-container { position: relative; display: inline-block; width: 100%; }
+  .plan-container img { width: 100%; height: auto; display: block; border: 1px solid #ddd; }
+  .room-label { position: absolute; padding: 3px 6px; font-size: 10px; font-weight: 700; color: #fff; border-radius: 3px; text-shadow: 0 1px 2px rgba(0,0,0,0.5); pointer-events: none; line-height: 1.2; text-align: center; white-space: nowrap; border: 1px solid rgba(255,255,255,0.3); }
+  .room-table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 13px; }
+  .room-table th { background: #ecf0f1; padding: 8px 10px; text-align: left; font-weight: 600; }
+  .room-table td { padding: 6px 10px; border-bottom: 1px solid #eee; }
+  .room-table .color-dot { display: inline-block; width: 12px; height: 12px; border-radius: 2px; margin-right: 6px; vertical-align: middle; border: 1px solid rgba(0,0,0,0.1); }
+  .note { font-style: italic; color: #e74c3c; font-size: 12px; }
+  footer { text-align: center; padding: 30px; color: #999; font-size: 12px; }
+
+  /* Color palette */
+  .c-changeroom { background: rgba(52, 152, 219, 0.75); }
+  .c-kitchen { background: rgba(46, 204, 113, 0.75); }
+  .c-office { background: rgba(155, 89, 182, 0.75); }
+  .c-storage { background: rgba(243, 156, 18, 0.75); }
+  .c-gym { background: rgba(231, 76, 60, 0.75); }
+  .c-lounge { background: rgba(26, 188, 156, 0.75); }
+  .c-outdoor { background: rgba(22, 160, 133, 0.75); }
+  .c-entry { background: rgba(127, 140, 141, 0.75); }
+  .c-mechanical { background: rgba(149, 165, 166, 0.75); }
+  .c-washroom { background: rgba(108, 122, 137, 0.75); }
+  .c-parking { background: rgba(189, 195, 199, 0.75); }
+  .c-flow { background: rgba(41, 128, 185, 0.75); }
+
+  .bg-changeroom { background-color: #3498db; }
+  .bg-kitchen { background-color: #2ecc71; }
+  .bg-office { background-color: #9b59b6; }
+  .bg-storage { background-color: #f39c12; }
+  .bg-gym { background-color: #e74c3c; }
+  .bg-lounge { background-color: #1abc9c; }
+  .bg-outdoor { background-color: #16a085; }
+  .bg-entry { background-color: #7f8c8d; }
+  .bg-mechanical { background-color: #95a5a6; }
+  .bg-washroom { background-color: #6c7a89; }
+  .bg-parking { background-color: #bdc3c7; }
+
+  @media print {
+    .model-section { page-break-inside: avoid; }
+    .floor-card { page-break-inside: avoid; }
+    body { background: #fff; }
+  }
+</style>
+</head>
+<body>
+<div class="page-header">
+  <h1>Community Center — Annotated Floor Plans</h1>
+  <p>TALO Homes Conversion Reference | March 29, 2026</p>
+</div>
+
+<div class="color-legend">
+  <h3>Function Color Key</h3>
+  <div class="legend-grid">
+    <div class="legend-item"><div class="legend-swatch bg-changeroom"></div>M/F Change Rooms</div>
+    <div class="legend-item"><div class="legend-swatch bg-kitchen"></div>Community Kitchen</div>
+    <div class="legend-item"><div class="legend-swatch bg-office"></div>Community Office</div>
+    <div class="legend-item"><div class="legend-swatch bg-storage"></div>Storage / Technology</div>
+    <div class="legend-item"><div class="legend-swatch bg-gym"></div>Small Gym</div>
+    <div class="legend-item"><div class="legend-swatch bg-lounge"></div>Small Lounge</div>
+    <div class="legend-item"><div class="legend-swatch bg-outdoor"></div>Outdoor / Terrace</div>
+    <div class="legend-item"><div class="legend-swatch bg-entry"></div>Entry / Reception</div>
+    <div class="legend-item"><div class="legend-swatch bg-mechanical"></div>Mechanical / Basement</div>
+    <div class="legend-item"><div class="legend-swatch bg-washroom"></div>Washroom</div>
+    <div class="legend-item"><div class="legend-swatch bg-parking"></div>Parking / Garage</div>
+  </div>
+</div>
+<!-- ===================== TAHOE M107 ===================== -->
+<div class="model-section">
+  <div class="model-title">1. Tahoe M107</div>
+
+  <!-- Ground Floor -->
+  <div class="floor-card">
+    <h3>Ground Floor (Rez-de-Chaussée)</h3>
+    <div class="plan-container">
+      <img src="images/Tahoe/M-107-A-1200x800.jpg" alt="Tahoe M107 Ground Floor">
+      <div class="room-label c-entry" style="top:56%;left:44%;transform:translate(-50%,-50%)">Entry</div>
+      <div class="room-label c-office" style="top:46%;left:53%;transform:translate(-50%,-50%)">Community<br>Office</div>
+      <div class="room-label c-lounge" style="top:30%;left:48%;transform:translate(-50%,-50%)">Small Lounge</div>
+      <div class="room-label c-kitchen" style="top:18%;left:56%;transform:translate(-50%,-50%)">Community<br>Kitchen</div>
+      <div class="room-label c-lounge" style="top:36%;left:38%;transform:translate(-50%,-50%)">Lounge<br>(Dining)</div>
+      <div class="room-label c-washroom" style="top:52%;left:63%;transform:translate(-50%,-50%)">WC</div>
+      <div class="room-label c-parking" style="top:35%;left:19%;transform:translate(-50%,-50%)">Garage<br>(Rooftop = Wellness Deck)</div>
+      <div class="room-label c-outdoor" style="top:13%;left:83%;transform:translate(-50%,-50%)">Covered<br>Seating Nook</div>
+    </div>
+    <table class="room-table">
+      <tr><th>Rm#</th><th>Original Room</th><th>Community Function</th></tr>
+      <tr><td>1</td><td>Hall d'Entrée</td><td><span class="color-dot bg-entry"></span>Entry / Reception</td></tr>
+      <tr><td>3</td><td>Bureau</td><td><span class="color-dot bg-office"></span>Community Office</td></tr>
+      <tr><td>4</td><td>Salle à Manger</td><td><span class="color-dot bg-lounge"></span>Small Lounge (Dining Area)</td></tr>
+      <tr><td>5</td><td>Cuisine</td><td><span class="color-dot bg-kitchen"></span>Community Kitchen</td></tr>
+      <tr><td>6</td><td>Séjour</td><td><span class="color-dot bg-lounge"></span>Small Lounge</td></tr>
+      <tr><td>7</td><td>Garde-Manger</td><td><span class="color-dot bg-kitchen"></span>Kitchen Pantry</td></tr>
+      <tr><td>8</td><td>Rangement</td><td><span class="color-dot bg-storage"></span>Storage</td></tr>
+      <tr><td>10</td><td>Salle d'Eau</td><td><span class="color-dot bg-washroom"></span>Washroom</td></tr>
+      <tr><td>11</td><td>Garage Double</td><td><span class="color-dot bg-parking"></span>Garage (Rooftop → Elevated Outdoor Wellness Deck)</td></tr>
+      <tr><td>—</td><td>Side Alcove Terrace</td><td><span class="color-dot bg-outdoor"></span>Covered Outdoor Seating Nook</td></tr>
+      <tr><td>—</td><td>Main Rear Terrace</td><td><span class="color-dot bg-outdoor"></span>Outdoor Event / Gathering Space</td></tr>
+    </table>
+  </div>
+
+  <!-- Upper Level -->
+  <div class="floor-card">
+    <h3>Upper Level (Étage)</h3>
+    <div class="plan-container">
+      <img src="images/Tahoe/M-107-B-1200x960.jpg" alt="Tahoe M107 Upper Level">
+      <div class="room-label c-changeroom" style="top:26%;left:62%;transform:translate(-50%,-50%)">M/F Change<br>Rooms</div>
+      <div class="room-label c-gym" style="top:42%;left:62%;transform:translate(-50%,-50%)">Small<br>Gym</div>
+      <div class="room-label c-storage" style="top:26%;left:80%;transform:translate(-50%,-50%)">Storage /<br>Technology</div>
+      <div class="room-label c-outdoor" style="top:35%;left:30%;transform:translate(-50%,-50%)">Elevated Outdoor<br>Wellness Deck</div>
+    </div>
+    <table class="room-table">
+      <tr><th>Rm#</th><th>Original Room</th><th>Community Function</th></tr>
+      <tr><td>15</td><td>Chambre Principale</td><td><span class="color-dot bg-changeroom"></span>M/F Change Rooms</td></tr>
+      <tr><td>17</td><td>Chambre #2</td><td><span class="color-dot bg-gym"></span>Small Gym</td></tr>
+      <tr><td>12</td><td>Salle Familiale (Boudoir)</td><td><span class="color-dot bg-storage"></span>Storage / Technology Room</td></tr>
+      <tr><td>19</td><td>Terrasse</td><td><span class="color-dot bg-outdoor"></span>Terrace / Transition</td></tr>
+      <tr><td>20</td><td>Toiture Végétale</td><td><span class="color-dot bg-outdoor"></span>Elevated Outdoor Wellness Deck</td></tr>
+    </table>
+  </div>
+
+  <!-- Basement -->
+  <div class="floor-card">
+    <h3>Basement (Sous-Sol)</h3>
+    <div class="plan-container">
+      <img src="images/Tahoe/04-M-107-C-1200x927.jpg" alt="Tahoe M107 Basement">
+      <div class="room-label c-mechanical" style="top:38%;left:45%;transform:translate(-50%,-50%)">Storage &<br>Additional Programming</div>
+      <div class="room-label c-mechanical" style="top:55%;left:62%;transform:translate(-50%,-50%)">Mechanical</div>
+    </div>
+    <table class="room-table">
+      <tr><th>Rm#</th><th>Original Room</th><th>Community Function</th></tr>
+      <tr><td>21</td><td>Salle Familiale</td><td><span class="color-dot bg-mechanical"></span>Additional Programming / Flex Space</td></tr>
+      <tr><td>22</td><td>Bureau</td><td><span class="color-dot bg-mechanical"></span>Storage</td></tr>
+      <tr><td>24</td><td>Chambre #4</td><td><span class="color-dot bg-mechanical"></span>Storage</td></tr>
+      <tr><td>26</td><td>Mécanique</td><td><span class="color-dot bg-mechanical"></span>Mechanical</td></tr>
+    </table>
+  </div>
+</div>
+<!-- ===================== SOHO M110 ===================== -->
+<div class="model-section">
+  <div class="model-title">2. SoHo M110</div>
+
+  <!-- Ground Floor -->
+  <div class="floor-card">
+    <h3>Ground Floor (Rez-de-Chaussée)</h3>
+    <div class="plan-container">
+      <img src="images/SoHo/02-M-110-RDC-1200x927.jpg" alt="SoHo M110 Ground Floor">
+      <div class="room-label c-gym" style="top:32%;left:25%;transform:translate(-50%,-50%)">Small Gym<br><span style="font-size:8px">*detached garage req'd</span></div>
+      <div class="room-label c-changeroom" style="top:40%;left:48%;transform:translate(-50%,-50%)">M/F Change<br>Rooms</div>
+      <div class="room-label c-lounge" style="top:25%;left:62%;transform:translate(-50%,-50%)">Small Lounge</div>
+      <div class="room-label c-kitchen" style="top:18%;left:52%;transform:translate(-50%,-50%)">Kitchen<br>(see UL)</div>
+      <div class="room-label c-entry" style="top:52%;left:42%;transform:translate(-50%,-50%)">Entry</div>
+    </div>
+    <table class="room-table">
+      <tr><th>Rm#</th><th>Original Room</th><th>Community Function</th></tr>
+      <tr><td>1</td><td>Hall d'Entrée</td><td><span class="color-dot bg-entry"></span>Entry</td></tr>
+      <tr><td>2</td><td>Walk-In</td><td><span class="color-dot bg-changeroom"></span>M/F Change Rooms (with Rm 3)</td></tr>
+      <tr><td>3</td><td>Salle d'Eau</td><td><span class="color-dot bg-changeroom"></span>M/F Change Rooms (with Rm 2)</td></tr>
+      <tr><td>4</td><td>Cuisine</td><td><span class="color-dot bg-lounge"></span>Small Lounge (Dining Area)</td></tr>
+      <tr><td>5</td><td>Salon</td><td><span class="color-dot bg-lounge"></span>Small Lounge</td></tr>
+      <tr><td>6</td><td>Salle à Manger</td><td><span class="color-dot bg-lounge"></span>Small Lounge (Open Plan)</td></tr>
+      <tr><td>7</td><td>Garage</td><td><span class="color-dot bg-gym"></span>Small Gym <span class="note">*Will require a detached garage</span></td></tr>
+    </table>
+  </div>
+
+  <!-- Upper Level -->
+  <div class="floor-card">
+    <h3>Upper Level (Étage)</h3>
+    <div class="plan-container">
+      <img src="images/SoHo/03-M-110-ETAGE-1200x927.jpg" alt="SoHo M110 Upper Level">
+      <div class="room-label c-office" style="top:38%;left:28%;transform:translate(-50%,-50%)">Community<br>Office</div>
+      <div class="room-label c-kitchen" style="top:28%;left:60%;transform:translate(-50%,-50%)">Community<br>Kitchen</div>
+      <div class="room-label c-storage" style="top:52%;left:72%;transform:translate(-50%,-50%)">Storage /<br>Technology</div>
+    </div>
+    <table class="room-table">
+      <tr><th>Rm#</th><th>Original Room</th><th>Community Function</th></tr>
+      <tr><td>8</td><td>Chambre Principale</td><td><span class="color-dot bg-office"></span>Community Office</td></tr>
+      <tr><td>13</td><td>Boudoir</td><td><span class="color-dot bg-kitchen"></span>Community Kitchen</td></tr>
+      <tr><td>14</td><td>Chambre #2</td><td><span class="color-dot bg-kitchen"></span>Community Kitchen (expansion)</td></tr>
+      <tr><td>15</td><td>Chambre #3</td><td><span class="color-dot bg-storage"></span>Storage / Technology Room</td></tr>
+    </table>
+  </div>
+
+  <!-- Basement -->
+  <div class="floor-card">
+    <h3>Basement (Sous-Sol)</h3>
+    <div class="plan-container">
+      <img src="images/SoHo/04-M-110-SOUS-SOL-1200x927.jpg" alt="SoHo M110 Basement">
+      <div class="room-label c-mechanical" style="top:35%;left:55%;transform:translate(-50%,-50%)">Mechanical +<br>Secure Storage</div>
+    </div>
+    <table class="room-table">
+      <tr><th>Rm#</th><th>Original Room</th><th>Community Function</th></tr>
+      <tr><td>17</td><td>Salle Familiale</td><td><span class="color-dot bg-mechanical"></span>Secure Storage</td></tr>
+      <tr><td>20</td><td>Salle Mécanique</td><td><span class="color-dot bg-mechanical"></span>Mechanical</td></tr>
+    </table>
+  </div>
+</div>
+<!-- ===================== ASEDA N207 ===================== -->
+<div class="model-section">
+  <div class="model-title">3. Aseda N207</div>
+
+  <!-- Ground Floor -->
+  <div class="floor-card">
+    <h3>Ground Floor (Rez-de-Chaussée)</h3>
+    <div class="plan-container">
+      <img src="images/Aseda/02-N-207-Aseda-RDC-1200x927.jpg" alt="Aseda N207 Ground Floor">
+      <div class="room-label c-entry" style="top:58%;left:43%;transform:translate(-50%,-50%)">Welcome<br>Lobby</div>
+      <div class="room-label c-kitchen" style="top:25%;left:30%;transform:translate(-50%,-50%)">Community<br>Kitchen</div>
+      <div class="room-label c-lounge" style="top:48%;left:24%;transform:translate(-50%,-50%)">Small<br>Lounge</div>
+      <div class="room-label c-gym" style="top:48%;left:70%;transform:translate(-50%,-50%)">Small Gym<br><span style="font-size:8px">*detached garage req'd</span></div>
+      <div class="room-label c-office" style="top:30%;left:50%;transform:translate(-50%,-50%)">Office Area</div>
+    </div>
+    <table class="room-table">
+      <tr><th>Rm#</th><th>Original Room</th><th>Community Function</th></tr>
+      <tr><td>1</td><td>Hall d'Entrée</td><td><span class="color-dot bg-entry"></span>Welcome Lobby</td></tr>
+      <tr><td>6</td><td>Salon</td><td><span class="color-dot bg-lounge"></span>Small Lounge</td></tr>
+      <tr><td>7</td><td>Cuisine</td><td><span class="color-dot bg-kitchen"></span>Community Kitchen</td></tr>
+      <tr><td>8</td><td>Bureau</td><td><span class="color-dot bg-office"></span>Office Nook</td></tr>
+      <tr><td>9</td><td>Salle à Manger</td><td><span class="color-dot bg-lounge"></span>Small Lounge (Dining)</td></tr>
+      <tr><td>12</td><td>Garage</td><td><span class="color-dot bg-gym"></span>Small Gym <span class="note">*Will require a detached garage</span></td></tr>
+      <tr><td>10</td><td>Patio</td><td><span class="color-dot bg-outdoor"></span>Outdoor Terrace</td></tr>
+      <tr><td>11</td><td>Cour Intérieure</td><td><span class="color-dot bg-outdoor"></span>Interior Court</td></tr>
+    </table>
+  </div>
+
+  <!-- Upper Level -->
+  <div class="floor-card">
+    <h3>Upper Level (Étage)</h3>
+    <div class="plan-container">
+      <img src="images/Aseda/03-N-207-Aseda-ETAGE-1200x927.jpg" alt="Aseda N207 Upper Level">
+      <div class="room-label c-changeroom" style="top:25%;left:62%;transform:translate(-50%,-50%)">M/F Change<br>Rooms</div>
+      <div class="room-label c-office" style="top:42%;left:35%;transform:translate(-50%,-50%)">Community<br>Office</div>
+      <div class="room-label c-storage" style="top:52%;left:55%;transform:translate(-50%,-50%)">Storage /<br>Technology</div>
+    </div>
+    <table class="room-table">
+      <tr><th>Rm#</th><th>Original Room</th><th>Community Function</th></tr>
+      <tr><td>19</td><td>Chambre Principale</td><td><span class="color-dot bg-changeroom"></span>M/F Change Rooms</td></tr>
+      <tr><td>13</td><td>Chambre #2</td><td><span class="color-dot bg-office"></span>Community Office</td></tr>
+      <tr><td>14</td><td>Chambre #3</td><td><span class="color-dot bg-storage"></span>Storage / Technology Room</td></tr>
+      <tr><td>—</td><td>Mezzanine / Upper Hall</td><td><span class="color-dot bg-storage"></span>Mezzanine Overlook / Tech</td></tr>
+    </table>
+  </div>
+
+  <!-- Basement -->
+  <div class="floor-card">
+    <h3>Basement (Sous-Sol)</h3>
+    <div class="plan-container">
+      <img src="images/Aseda/04-N-207-Aseda-SS-1200x927.jpg" alt="Aseda N207 Basement">
+      <div class="room-label c-mechanical" style="top:40%;left:30%;transform:translate(-50%,-50%)">Storage, Mechanical<br>& Overflow</div>
+    </div>
+    <table class="room-table">
+      <tr><th>Rm#</th><th>Original Room</th><th>Community Function</th></tr>
+      <tr><td>28</td><td>Salle Familiale</td><td><span class="color-dot bg-mechanical"></span>Overflow / Flex Space</td></tr>
+      <tr><td>27</td><td>Chambre #5</td><td><span class="color-dot bg-mechanical"></span>Storage</td></tr>
+      <tr><td>24</td><td>Salle Mécanique</td><td><span class="color-dot bg-mechanical"></span>Mechanical</td></tr>
+    </table>
+  </div>
+</div>
+<!-- ===================== BERGEN N203 ===================== -->
+<div class="model-section">
+  <div class="model-title">4. Bergen N203</div>
+
+  <!-- Ground Floor -->
+  <div class="floor-card">
+    <h3>Ground Floor (Rez-de-Chaussée)</h3>
+    <div class="plan-container">
+      <img src="images/Bergen/02-N-203-A-1200x927.jpg" alt="Bergen N203 Ground Floor">
+      <div class="room-label c-entry" style="top:54%;left:35%;transform:translate(-50%,-50%)">Reception<br>& Entry</div>
+      <div class="room-label c-lounge" style="top:48%;left:60%;transform:translate(-50%,-50%)">Small<br>Lounge</div>
+      <div class="room-label c-kitchen" style="top:18%;left:55%;transform:translate(-50%,-50%)">Community<br>Kitchen</div>
+      <div class="room-label c-parking" style="top:38%;left:22%;transform:translate(-50%,-50%)">Covered Parking /<br>Equipment Storage</div>
+      <div class="room-label c-outdoor" style="top:15%;left:25%;transform:translate(-50%,-50%)">Covered<br>Terrace</div>
+    </div>
+    <table class="room-table">
+      <tr><th>Rm#</th><th>Original Room</th><th>Community Function</th></tr>
+      <tr><td>1</td><td>Hall d'Entrée</td><td><span class="color-dot bg-entry"></span>Reception & Entry</td></tr>
+      <tr><td>4</td><td>Séjour</td><td><span class="color-dot bg-lounge"></span>Small Lounge</td></tr>
+      <tr><td>5</td><td>Salle à Manger</td><td><span class="color-dot bg-lounge"></span>Small Lounge (Dining)</td></tr>
+      <tr><td>6</td><td>Cuisine</td><td><span class="color-dot bg-kitchen"></span>Community Kitchen</td></tr>
+      <tr><td>7</td><td>Garage</td><td><span class="color-dot bg-parking"></span>Covered Parking / Equipment Storage</td></tr>
+      <tr><td>8</td><td>Cour Intérieure</td><td><span class="color-dot bg-outdoor"></span>Interior Court</td></tr>
+      <tr><td>9</td><td>Terrasse Couverte</td><td><span class="color-dot bg-outdoor"></span>Covered Outdoor Terrace</td></tr>
+    </table>
+  </div>
+
+  <!-- Upper Level -->
+  <div class="floor-card">
+    <h3>Upper Level (Étage)</h3>
+    <div class="plan-container">
+      <img src="images/Bergen/03-N-203-B-1-1200x927.jpg" alt="Bergen N203 Upper Level">
+      <div class="room-label c-changeroom" style="top:18%;left:64%;transform:translate(-50%,-50%)">M/F Change<br>Rooms</div>
+      <div class="room-label c-office" style="top:35%;left:62%;transform:translate(-50%,-50%)">Community<br>Office</div>
+      <div class="room-label c-storage" style="top:48%;left:68%;transform:translate(-50%,-50%)">Storage /<br>Technology</div>
+      <div class="room-label c-gym" style="top:40%;left:45%;transform:translate(-50%,-50%)">Small<br>Gym</div>
+    </div>
+    <table class="room-table">
+      <tr><th>Rm#</th><th>Original Room</th><th>Community Function</th></tr>
+      <tr><td>11</td><td>Chambre Principale</td><td><span class="color-dot bg-changeroom"></span>M/F Change Rooms</td></tr>
+      <tr><td>14</td><td>Chambre #2</td><td><span class="color-dot bg-office"></span>Community Office</td></tr>
+      <tr><td>15</td><td>Chambre #3</td><td><span class="color-dot bg-storage"></span>Storage / Technology Room</td></tr>
+      <tr><td>10</td><td>Boudoir / Bureau</td><td><span class="color-dot bg-gym"></span>Small Gym (Bonus Loft)</td></tr>
+    </table>
+  </div>
+
+  <!-- Basement -->
+  <div class="floor-card">
+    <h3>Basement (Sous-Sol)</h3>
+    <div class="plan-container">
+      <img src="images/Bergen/04-N-203-C-1200x927.jpg" alt="Bergen N203 Basement">
+      <div class="room-label c-mechanical" style="top:35%;left:62%;transform:translate(-50%,-50%)">Storage, Mechanical<br>& Overflow</div>
+    </div>
+    <table class="room-table">
+      <tr><th>Rm#</th><th>Original Room</th><th>Community Function</th></tr>
+      <tr><td>17</td><td>Salle Familiale</td><td><span class="color-dot bg-mechanical"></span>Overflow / Flex Space</td></tr>
+      <tr><td>15</td><td>Chambre #4</td><td><span class="color-dot bg-mechanical"></span>Storage</td></tr>
+      <tr><td>22</td><td>Mécanique</td><td><span class="color-dot bg-mechanical"></span>Mechanical</td></tr>
+    </table>
+  </div>
+</div>
+<!-- ===================== OSLO N201 ===================== -->
+<div class="model-section">
+  <div class="model-title">5. Oslo N201</div>
+
+  <!-- Ground Floor -->
+  <div class="floor-card">
+    <h3>Ground Floor (Rez-de-Chaussée)</h3>
+    <div class="plan-container">
+      <img src="images/Oslo/M-201-A-1200x1133.jpg" alt="Oslo N201 Ground Floor">
+      <div class="room-label c-lounge" style="top:50%;left:32%;transform:translate(-50%,-50%)">Small<br>Lounge</div>
+      <div class="room-label c-kitchen" style="top:28%;left:42%;transform:translate(-50%,-50%)">Community<br>Kitchen</div>
+      <div class="room-label c-parking" style="top:25%;left:68%;transform:translate(-50%,-50%)">Covered Parking /<br>Flex Storage</div>
+      <div class="room-label c-outdoor" style="top:10%;left:45%;transform:translate(-50%,-50%)">Wraparound<br>Terrace</div>
+      <div class="room-label c-entry" style="top:58%;left:42%;transform:translate(-50%,-50%)">Entry</div>
+    </div>
+    <table class="room-table">
+      <tr><th>Rm#</th><th>Original Room</th><th>Community Function</th></tr>
+      <tr><td>1</td><td>Hall d'Entrée</td><td><span class="color-dot bg-entry"></span>Entry</td></tr>
+      <tr><td>4</td><td>Séjour</td><td><span class="color-dot bg-lounge"></span>Small Lounge (Double-Height)</td></tr>
+      <tr><td>5</td><td>Cuisine</td><td><span class="color-dot bg-kitchen"></span>Community Kitchen</td></tr>
+      <tr><td>6</td><td>Salle à Manger</td><td><span class="color-dot bg-kitchen"></span>Community Kitchen (Dining)</td></tr>
+      <tr><td>7</td><td>Terrasse Couverte</td><td><span class="color-dot bg-outdoor"></span>Wraparound Terrace & Gathering Space</td></tr>
+      <tr><td>8</td><td>Garage</td><td><span class="color-dot bg-parking"></span>Covered Parking / Flex Storage</td></tr>
+      <tr><td>9</td><td>Abri d'Auto</td><td><span class="color-dot bg-parking"></span>Carport</td></tr>
+    </table>
+  </div>
+
+  <!-- Upper Level -->
+  <div class="floor-card">
+    <h3>Upper Level (Étage)</h3>
+    <div class="plan-container">
+      <img src="images/Oslo/M-201-B-1200x1133.jpg" alt="Oslo N201 Upper Level">
+      <div class="room-label c-changeroom" style="top:25%;left:42%;transform:translate(-50%,-50%)">M/F Change<br>Rooms</div>
+      <div class="room-label c-office" style="top:60%;left:55%;transform:translate(-50%,-50%)">Community<br>Office</div>
+      <div class="room-label c-storage" style="top:60%;left:38%;transform:translate(-50%,-50%)">Storage /<br>Technology</div>
+    </div>
+    <table class="room-table">
+      <tr><th>Rm#</th><th>Original Room</th><th>Community Function</th></tr>
+      <tr><td>11</td><td>Chambre Principale</td><td><span class="color-dot bg-changeroom"></span>M/F Change Rooms</td></tr>
+      <tr><td>15</td><td>Chambre #2</td><td><span class="color-dot bg-office"></span>Community Office</td></tr>
+      <tr><td>16</td><td>Chambre #3</td><td><span class="color-dot bg-storage"></span>Storage / Technology Room</td></tr>
+      <tr><td>10</td><td>Hall / Balcony</td><td><span class="color-dot bg-outdoor"></span>Observation Balcony</td></tr>
+    </table>
+  </div>
+
+  <!-- Basement -->
+  <div class="floor-card">
+    <h3>Basement (Sous-Sol)</h3>
+    <div class="plan-container">
+      <img src="images/Oslo/04-M-201-C-1200x927.jpg" alt="Oslo N201 Basement">
+      <div class="room-label c-gym" style="top:22%;left:32%;transform:translate(-50%,-50%)">Small<br>Gym</div>
+      <div class="room-label c-mechanical" style="top:45%;left:50%;transform:translate(-50%,-50%)">Storage &<br>Mechanical</div>
+    </div>
+    <table class="room-table">
+      <tr><th>Rm#</th><th>Original Room</th><th>Community Function</th></tr>
+      <tr><td>17</td><td>Chambre #4</td><td><span class="color-dot bg-gym"></span>Small Gym</td></tr>
+      <tr><td>19</td><td>Salle Familiale</td><td><span class="color-dot bg-mechanical"></span>Overflow / Flex Space</td></tr>
+      <tr><td>20</td><td>Bureau</td><td><span class="color-dot bg-mechanical"></span>Storage</td></tr>
+      <tr><td>22</td><td>Mécanique</td><td><span class="color-dot bg-mechanical"></span>Mechanical</td></tr>
+    </table>
+  </div>
+</div>
+
+<footer>
+  <p>Community Center Conversion — Floor Plan Reference | Generated March 29, 2026</p>
+  <p>Based on TALO Homes architectural plans. Room functions are recommendations for community center adaptation.</p>
+</footer>
+</body>
+</html>
