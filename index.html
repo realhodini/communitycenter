@@ -113,7 +113,16 @@
 
   /* Footer */
   footer { background: #111; color: #555; text-align: center; padding: 28px 24px; font-size: 0.78rem; letter-spacing: 1px; }
-</style>
+
+    /* Floor Plan Legend Styles */
+    .fp-legend { background: #f5f0eb; border: 1px solid #c9a96e; border-radius: 6px; padding: 14px 18px; margin: 18px 0 8px 0; font-size: 13px; line-height: 1.6; width: 100%; box-sizing: border-box; }
+    .fp-legend-title { font-weight: 700; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #c9a96e; margin-bottom: 8px; }
+    .fp-legend table { width: 100%; border-collapse: collapse; }
+    .fp-legend table td { padding: 3px 8px; font-size: 12.5px; border: none; vertical-align: top; }
+    .fp-legend table td:first-child { font-style: italic; color: #777; width: 45%; }
+    .fp-legend table td:last-child { font-weight: 600; color: #333; }
+    .fp-legend table tr:nth-child(even) { background: rgba(201,169,110,0.07); }
+  </style>
 </head>
 <body>
 
@@ -243,21 +252,50 @@
       </div>
     </div>
 
-    <div class="conversion-section">
+    
+      <div class="fp-legend">
+        <div class="fp-legend-title">Ground Floor — Community Function Mapping</div>
+        <table>
+          <tr><td>Bureau (Office)</td><td>→ Community Office</td></tr>
+          <tr><td>Séjour (Living Room)</td><td>→ Small Lounge</td></tr>
+          <tr><td>Cuisine (Kitchen)</td><td>→ Community Kitchen</td></tr>
+          <tr><td>Salle à manger (Dining)</td><td>→ Small Lounge (contiguous)</td></tr>
+          <tr><td>Side Alcove Terrace</td><td>→ Covered Outdoor Seating Nook</td></tr>
+          <tr><td>Main Rear Terrace</td><td>→ Outdoor Event / Gathering Space</td></tr>
+        </table>
+      </div>
+
+      <div class="fp-legend">
+        <div class="fp-legend-title">Upper Level — Community Function Mapping</div>
+        <table>
+          <tr><td>Bedroom 1</td><td>→ M/F Change Rooms</td></tr>
+          <tr><td>Bedroom 2</td><td>→ Small Gym</td></tr>
+          <tr><td>Boudoir (top of stairs)</td><td>→ Storage / Technology Room</td></tr>
+          <tr><td>Rooftop Terrace (~430 sq ft)</td><td>→ Elevated Outdoor Wellness Deck</td></tr>
+        </table>
+      </div>
+
+      <div class="fp-legend">
+        <div class="fp-legend-title">Basement — Community Function Mapping</div>
+        <table>
+          <tr><td>Full Basement (1,122 sq ft)</td><td>→ Storage, Mechanical &amp; Additional Programming</td></tr>
+        </table>
+      </div>
+<div class="conversion-section">
       <h4>Community Center Adaptation — Residential-to-Public Conversion Logic</h4>
       <table class="conv-table">
         <thead><tr><th>Residential Room</th><th>Community Function</th><th>Rationale</th></tr></thead>
         <tbody>
-          <tr><td>Private Office (lattice-screened)</td><td>Admin / Reception Desk</td><td>Positioned behind the wood lattice for visual privacy and controlled access — a natural front-desk location.</td></tr>
-          <tr><td>Open-Plan Living / Dining (GF)</td><td>Main Social Lounge</td><td>Large, flexible open area for coffee service, informal seating, and community drop-in use.</td></tr>
-          <tr><td>Kitchen</td><td>Catering / Service Kitchen</td><td>Retained as-is for event catering; positioned between the interior lounge and rear terrace for seamless service flow.</td></tr>
+          <tr><td>Private Office (lattice-screened)</td><td>Community Office</td><td>Positioned behind the wood lattice for visual privacy and controlled access — ideal for administrative tasks, scheduling, and facility management.</td></tr>
+          <tr><td>Open-Plan Living / Dining (GF)</td><td>Small Lounge</td><td>Open-plan area converted to a comfortable lounge for informal community gatherings, coffee service, and casual drop-in use.</td></tr>
+          <tr><td>Kitchen</td><td>Community Kitchen</td><td>Retained as a fully functional kitchen for event catering and community use; positioned between the lounge and rear terrace for seamless service flow.</td></tr>
           <tr><td>Side Alcove Terrace</td><td>Covered Outdoor Seating Nook</td><td>Intimate shaded space for small breakout conversations or quiet breaks.</td></tr>
           <tr><td>Main Rear Terrace</td><td>Outdoor Event / Gathering Space</td><td>Primary exterior programming area, suitable for larger community gatherings, markets, and seasonal events.</td></tr>
-          <tr><td>Upper Bedroom 1</td><td>Multi-Purpose Studio A</td><td>Ideal for yoga, art workshops, or small fitness classes.</td></tr>
-          <tr><td>Upper Bedroom 2</td><td>Multi-Purpose Studio B</td><td>Supports overflow programming; doubles as a private meeting room or office.</td></tr>
+          <tr><td>Upper Bedroom 1</td><td>M/F Change Rooms</td><td>Converted into separate male and female change rooms with lockers and washroom facilities — essential for gym users and community programming participants.</td></tr>
+          <tr><td>Upper Bedroom 2</td><td>Small Gym</td><td>Enclosed room converted to a compact fitness area with basic exercise equipment, adjacent to the change rooms for convenient access.</td></tr>
           <tr><td>Garage Rooftop Terrace (~430 sq ft)</td><td>Elevated Outdoor Wellness Deck</td><td>The signature feature — elevated outdoor space for yoga, sunset mixers, outdoor film screenings, or stargazing events.</td></tr>
-          <tr><td>Boudoir at Top of Stairs</td><td>Community Notice / Reading Nook</td><td>Natural transition landing — ideal for a notice board, a small library corner, or curated display area.</td></tr>
-          <tr><td>Basement (1,122 sq ft)</td><td>Storage, Mechanical &amp; Bonus Programming</td><td>Large footprint for storage, mechanical systems, and potential secondary programming space.</td></tr>
+          <tr><td>Boudoir at Top of Stairs</td><td>Storage / Technology Room</td><td>Compact upper-level space repurposed for secure equipment storage, AV gear, IT infrastructure, and technology supplies.</td></tr>
+          <tr><td>Basement (1,122 sq ft)</td><td>Storage, Mechanical &amp; Additional Programming</td><td>Large footprint accommodates mechanical systems, bulk storage, and potential secondary programming overflow.</td></tr>
         </tbody>
       </table>
     </div>
@@ -339,20 +377,47 @@
       </div>
     </div>
 
-    <div class="conversion-section">
+    
+      <div class="fp-legend">
+        <div class="fp-legend-title">Ground Floor — Community Function Mapping</div>
+        <table>
+          <tr><td>Carport / Garage (351 sq ft)</td><td>→ Small Gym</td></tr>
+          <tr><td>Service Block (walk-in / powder room)</td><td>→ M/F Change Rooms</td></tr>
+          <tr><td>Open-Plan Living / Dining</td><td>→ Small Lounge</td></tr>
+          <tr><td>Three Garden Doors / Rear Wall</td><td>→ Indoor-Outdoor Flow Zone</td></tr>
+          <tr><td>Large Rear Covered Terrace</td><td>→ Four-Season Outdoor Pavilion</td></tr>
+        </table>
+      </div>
+
+      <div class="fp-legend">
+        <div class="fp-legend-title">Upper Level — Community Function Mapping</div>
+        <table>
+          <tr><td>Master Suite (rear)</td><td>→ Community Office</td></tr>
+          <tr><td>Bedroom 2</td><td>→ Community Kitchen</td></tr>
+          <tr><td>Bedroom 3</td><td>→ Storage / Technology Room</td></tr>
+        </table>
+      </div>
+
+      <div class="fp-legend">
+        <div class="fp-legend-title">Basement — Community Function Mapping</div>
+        <table>
+          <tr><td>Basement (698 sq ft)</td><td>→ Mechanical + Secure Storage</td></tr>
+        </table>
+      </div>
+<div class="conversion-section">
       <h4>Community Center Adaptation — Residential-to-Public Conversion Logic</h4>
       <table class="conv-table">
         <thead><tr><th>Residential Room</th><th>Community Function</th><th>Rationale</th></tr></thead>
         <tbody>
-          <tr><td>Integrated Carport / Garage (351 sq ft)</td><td>Enclosed Gallery or Flex Studio</td><td>Enclosing this space adds ~400 sq ft of climate-controlled area for an art gallery, fitness studio, or bike storage.</td></tr>
-          <tr><td>Service Block (walk-in / powder room, GF)</td><td>Public Coat Check + Washrooms</td><td>Already at the entrance — perfectly positioned for public use with minimal modification.</td></tr>
-          <tr><td>Open-Plan Living / Dining (GF)</td><td>The Grand Hall</td><td>The "floating" staircase creates a high-impact architectural backdrop for events, receptions, and galas.</td></tr>
+          <tr><td>Integrated Carport / Garage (351 sq ft)</td><td>Small Gym</td><td>Enclosing this space creates a dedicated fitness area with room for basic exercise equipment, accessible from the ground floor.</td></tr>
+          <tr><td>Service Block (walk-in / powder room, GF)</td><td>M/F Change Rooms</td><td>Existing walk-in and powder room infrastructure is reconfigured into separate male and female change rooms with washroom facilities — already plumbed and positioned at the entrance.</td></tr>
+          <tr><td>Open-Plan Living / Dining (GF)</td><td>Small Lounge</td><td>The dramatic floating staircase creates an architectural backdrop for a welcoming community lounge space for relaxation and informal gatherings.</td></tr>
           <tr><td>Three Garden Doors / Rear Wall</td><td>Indoor-Outdoor Flow Zone</td><td>Full-width glazed opening onto the rear terrace enables seamless event flow between inside and outside.</td></tr>
           <tr><td>Large Rear Covered Terrace</td><td>Four-Season Outdoor Pavilion</td><td>Sheltered outdoor space for community BBQs, seasonal programming, and outdoor meetings.</td></tr>
-          <tr><td>Master Suite (upper rear)</td><td>Boardroom / Co-Working Suite</td><td>Strategically private — separated from the main hall. Ideal for HOA board meetings or focused co-working.</td></tr>
-          <tr><td>Bedroom 2</td><td>Workshop / Programming Room</td><td>Secondary room for smaller workshops, art classes, or rotating programming.</td></tr>
-          <tr><td>Bedroom 3</td><td>Staff Room / Storage</td><td>Back-of-house support for community events and facility operations.</td></tr>
-          <tr><td>Basement (698 sq ft)</td><td>Mechanical + Secure Storage</td><td>Salle familiale becomes storage or auxiliary recreation space.</td></tr>
+          <tr><td>Master Suite (upper rear)</td><td>Community Office</td><td>Strategically private upper-level location — ideal for administrative operations, scheduling, and facility management.</td></tr>
+          <tr><td>Bedroom 2</td><td>Community Kitchen</td><td>Converted into a functional kitchen to support community events, catering, and refreshment preparation.</td></tr>
+          <tr><td>Bedroom 3</td><td>Storage / Technology Room</td><td>Back-of-house space for secure equipment storage, AV gear, IT infrastructure, and technology supplies.</td></tr>
+          <tr><td>Basement (698 sq ft)</td><td>Mechanical + Secure Storage</td><td>Basement accommodates mechanical systems and additional bulk storage for facility operations.</td></tr>
         </tbody>
       </table>
     </div>
@@ -417,28 +482,54 @@
               <div class="fp-label">Ground Floor · 1,048 sq ft</div>
             </div>
             <div class="fp-item">
-              <img src="https://taloplans.ca/wp-content/uploads/2019/12/03-N-207-B-1000x667.jpg" alt="Aseda Upper Level Plan" onclick="openLightbox(this.src)">
+              <img src="images/Aseda/03-N-207-Aseda-ETAGE-1200x927.jpg" alt="Aseda Upper Level Plan" onclick="openLightbox(this.src)">
               <div class="fp-label">Upper Level · 672 sq ft</div>
             </div>
             <div class="fp-item">
-              <img src="https://taloplans.ca/wp-content/uploads/2019/12/04-N-207-C-1000x667.jpg" alt="Aseda Basement Plan" onclick="openLightbox(this.src)">
+              <img src="images/Aseda/04-N-207-Aseda-SS-1200x927.jpg" alt="Aseda Basement Plan" onclick="openLightbox(this.src)">
               <div class="fp-label">Basement · 1,035 sq ft</div>
             </div>
           </div>
         </div>
-        <div class="conversion-section">
+        
+      <div class="fp-legend">
+        <div class="fp-legend-title">Ground Floor — Community Function Mapping</div>
+        <table>
+          <tr><td>Central Hall / Entry</td><td>→ Welcome Lobby</td></tr>
+          <tr><td>Open-Plan Living / Kitchen</td><td>→ Community Kitchen &amp; Small Lounge</td></tr>
+          <tr><td>Garage (430 sq ft)</td><td>→ Small Gym</td></tr>
+          <tr><td>Rear Garden Terrace</td><td>→ Outdoor Terrace</td></tr>
+        </table>
+      </div>
+
+      <div class="fp-legend">
+        <div class="fp-legend-title">Upper Level — Community Function Mapping</div>
+        <table>
+          <tr><td>Master Suite</td><td>→ M/F Change Rooms</td></tr>
+          <tr><td>Bedroom 2</td><td>→ Community Office</td></tr>
+          <tr><td>Mezzanine Overlook</td><td>→ Storage / Technology Room</td></tr>
+        </table>
+      </div>
+
+      <div class="fp-legend">
+        <div class="fp-legend-title">Basement — Community Function Mapping</div>
+        <table>
+          <tr><td>Basement (1,035 sq ft)</td><td>→ Storage, Mechanical &amp; Overflow</td></tr>
+        </table>
+      </div>
+<div class="conversion-section">
           <h4>Community Center Adaptation — Residential-to-Public Conversion Logic</h4>
         <table class="conv-table">
           <thead><tr><th>Residential Room</th><th>Community Function</th><th>Rationale</th></tr></thead>
             <tbody>
-              <tr><td>Central Hall / Entry</td><td>Welcome Lobby &amp; Info Desk</td><td>Central position creates a natural hub for orientation and visitor reception.</td></tr>
-              <tr><td>Open-Plan Living / Kitchen (GF)</td><td>Classroom / Workshop Space</td><td>Large connected area ideal for educational programming with built-in catering support.</td></tr>
-              <tr><td>Garage (430 sq ft)</td><td>Maker Space / Tool Library</td><td>Practical enclosed area for hands-on workshops, crafts, and community tool lending.</td></tr>
-              <tr><td>Master Suite (upper)</td><td>Private Meeting Room</td><td>Separated from main floor — suitable for consultations, board meetings, or counseling.</td></tr>
-              <tr><td>Bedroom 2 (upper)</td><td>Study Room / Quiet Zone</td><td>Supports individual study, remote work, or tutoring sessions.</td></tr>
-            <tr><td>Mezzanine Overlook</td><td>Reading Lounge</td><td>Visual connection to ground floor while providing a quieter elevated retreat space.</td></tr>
-              <tr><td>Rear Garden Terrace</td><td>Outdoor Learning / Garden Area</td><td>Panoramic windows extend the classroom outdoors for garden programs and nature workshops.</td></tr>
-            <tr><td>Basement (1,035 sq ft)</td><td>Storage &amp; Auxiliary Programming</td><td>Large footprint for equipment storage, mechanical systems, and overflow programming.</td></tr>
+              <tr><td>Central Hall / Entry</td><td>Welcome Lobby</td><td>Central position creates a natural hub for visitor orientation and access to all community functions.</td></tr>
+              <tr><td>Open-Plan Living / Kitchen (GF)</td><td>Community Kitchen &amp; Small Lounge</td><td>Large connected area split into a functional community kitchen and adjacent small lounge for informal gatherings, with built-in catering support.</td></tr>
+              <tr><td>Garage (430 sq ft)</td><td>Small Gym</td><td>Practical enclosed ground-floor area converted to a compact fitness space with basic exercise equipment.</td></tr>
+              <tr><td>Master Suite (upper)</td><td>M/F Change Rooms</td><td>Upper-level suite with existing ensuite bathroom reconfigured into separate male and female change rooms with lockers and washroom facilities.</td></tr>
+              <tr><td>Bedroom 2 (upper)</td><td>Community Office</td><td>Quiet upper-level room suitable for administrative work, scheduling, and facility management.</td></tr>
+            <tr><td>Mezzanine Overlook</td><td>Storage / Technology Room</td><td>Elevated mezzanine space repurposed for secure equipment storage, AV gear, and IT infrastructure with visual connection to ground floor.</td></tr>
+              <tr><td>Rear Garden Terrace</td><td>Outdoor Terrace</td><td>Panoramic windows extend the community space outdoors for seasonal gatherings and events.</td></tr>
+            <tr><td>Basement (1,035 sq ft)</td><td>Storage, Mechanical &amp; Overflow</td><td>Large footprint for equipment storage, mechanical systems, and potential overflow programming.</td></tr>
           </tbody>
           </table>
         </div>
@@ -455,22 +546,22 @@
       </div>
 
       <img class="render-hero" id="hero-bergen"
-        src="https://taloplans.ca/wp-content/uploads/2019/04/01-N-203_Bergen_Front-1-1800x1013.jpg"
+        src="images/Bergen/05-N-203_Back-1-1200x675.jpg"
           alt="Bergen N203 Exterior Rendering" onclick="openLightbox(this.src)">
 
         <div class="thumb-strip" id="strip-bergen">
           <img class="active"
-            src="https://taloplans.ca/wp-content/uploads/2019/04/01-N-203_Bergen_Front-1-230x129.jpg"
-            data-full="https://taloplans.ca/wp-content/uploads/2019/04/01-N-203_Bergen_Front-1-1800x1013.jpg"
+            src="images/Bergen/05-N-203_Back-1-1200x675.jpg"
+            data-full="images/Bergen/05-N-203_Back-1-1200x675.jpg"
             alt="Bergen Front" onclick="swapHero('hero-bergen','strip-bergen',this)">
-          <img src="https://taloplans.ca/wp-content/uploads/2019/04/05-N-203_Bergen_Back-1-230x129.jpg"
-            data-full="https://taloplans.ca/wp-content/uploads/2019/04/05-N-203_Bergen_Back-1-1800x1013.jpg"
+          <img src="images/Bergen/05-N-203_Back-1-1200x675.jpg"
+            data-full="images/Bergen/05-N-203_Back-1-1200x675.jpg"
             alt="Bergen Rear" onclick="swapHero('hero-bergen','strip-bergen',this)">
-          <img src="https://taloplans.ca/wp-content/uploads/2019/04/07-N-203-Cuisine-230x129.jpg"
-            data-full="https://taloplans.ca/wp-content/uploads/2019/04/07-N-203-Cuisine-1800x1013.jpg"
+          <img src="images/Bergen/06-N-203_Kitchen-1200x675.jpg"
+            data-full="images/Bergen/06-N-203_Kitchen-1200x675.jpg"
             alt="Bergen Kitchen" onclick="swapHero('hero-bergen','strip-bergen',this)">
-          <img src="https://taloplans.ca/wp-content/uploads/2019/04/06-N-203-Salon-230x129.jpg"
-            data-full="https://taloplans.ca/wp-content/uploads/2019/04/06-N-203-Salon-1800x1013.jpg"
+          <img src="images/Bergen/07-N-203_Living-1200x675.jpg"
+            data-full="images/Bergen/07-N-203_Living-1200x675.jpg"
             alt="Bergen Living Room" onclick="swapHero('hero-bergen','strip-bergen',this)">
         </div>
 
@@ -516,20 +607,48 @@
           </div>
         </div>
 
-        <div class="conversion-section">
+        
+      <div class="fp-legend">
+        <div class="fp-legend-title">Ground Floor — Community Function Mapping</div>
+        <table>
+          <tr><td>Mudroom / Entry</td><td>→ Reception &amp; Entry</td></tr>
+          <tr><td>Open-Plan Living / Dining</td><td>→ Small Lounge</td></tr>
+          <tr><td>Kitchen</td><td>→ Community Kitchen</td></tr>
+          <tr><td>Garage (480 sq ft)</td><td>→ Small Gym</td></tr>
+          <tr><td>Rear Garden Terrace</td><td>→ Outdoor Event Terrace</td></tr>
+        </table>
+      </div>
+
+      <div class="fp-legend">
+        <div class="fp-legend-title">Upper Level — Community Function Mapping</div>
+        <table>
+          <tr><td>Master Suite</td><td>→ M/F Change Rooms</td></tr>
+          <tr><td>Bedroom 2</td><td>→ Community Office</td></tr>
+          <tr><td>Bedroom 3</td><td>→ Storage / Technology Room</td></tr>
+          <tr><td>Bonus Loft</td><td>→ Additional Storage / Flex Space</td></tr>
+        </table>
+      </div>
+
+      <div class="fp-legend">
+        <div class="fp-legend-title">Basement — Community Function Mapping</div>
+        <table>
+          <tr><td>Basement (1,187 sq ft)</td><td>→ Storage, Mechanical &amp; Overflow</td></tr>
+        </table>
+      </div>
+<div class="conversion-section">
           <h4>Community Center Adaptation — Residential-to-Public Conversion Logic</h4>
         <table class="conv-table">
           <thead><tr><th>Residential Room</th><th>Community Function</th><th>Rationale</th></tr></thead>
             <tbody>
-              <tr><td>Mudroom / Entry</td><td>Reception &amp; Coat Storage</td><td>Purpose-built transition space — ideal for public entry management.</td></tr>
-              <tr><td>Open-Plan Living / Dining (GF)</td><td>Multi-Purpose Great Room</td><td>Largest contiguous space — suitable for events, classes, and community gatherings.</td></tr>
-            <tr><td>Kitchen</td><td>Community Kitchen / Catering Hub</td><td>Full kitchen retained for cooking classes, event catering, and community meals.</td></tr>
-            <tr><td>Garage (480 sq ft)</td><td>Flex Zone / Exhibition Space</td><td>Convertible to climate-controlled gallery, market stall area, or indoor recreation.</td></tr>
-            <tr><td>Master Suite (upper)</td><td>Administrative Office Suite</td><td>Private and separated — ideal for management, counseling, or quiet work.</td></tr>
-            <tr><td>Bedroom 2</td><td>Workshop Room A</td><td>Dedicated space for scheduled programming and small group activities.</td></tr>
-            <tr><td>Bedroom 3</td><td>Workshop Room B</td><td>Second programming room for concurrent activities or private lessons.</td></tr>
-            <tr><td>Bonus Loft</td><td>Youth Lounge / Game Room</td><td>Informal elevated space perfect for youth programming and casual recreation.</td></tr>
-              <tr><td>Rear Garden Terrace</td><td>Outdoor Event Terrace</td><td>Direct indoor-outdoor flow through full glazed wall supports seasonal events.</td></tr>
+              <tr><td>Mudroom / Entry</td><td>Reception &amp; Entry</td><td>Purpose-built transition space — ideal for public entry management and welcoming visitors.</td></tr>
+              <tr><td>Open-Plan Living / Dining (GF)</td><td>Small Lounge</td><td>Largest contiguous space converted to a comfortable community lounge for informal gatherings, coffee service, and casual use.</td></tr>
+            <tr><td>Kitchen</td><td>Community Kitchen</td><td>Full kitchen retained for event catering, refreshment preparation, and community meals.</td></tr>
+            <tr><td>Garage (480 sq ft)</td><td>Small Gym</td><td>Convertible to a dedicated compact fitness area with basic exercise equipment, accessible from the ground floor.</td></tr>
+            <tr><td>Master Suite (upper)</td><td>M/F Change Rooms</td><td>Private upper-level suite with existing ensuite reconfigured into separate male and female change rooms with lockers and washroom facilities.</td></tr>
+            <tr><td>Bedroom 2</td><td>Community Office</td><td>Dedicated upper-level space for administrative operations, scheduling, and facility management.</td></tr>
+            <tr><td>Bedroom 3</td><td>Storage / Technology Room</td><td>Second upper-level room repurposed for secure equipment storage, AV gear, IT infrastructure, and technology supplies.</td></tr>
+            <tr><td>Bonus Loft</td><td>Additional Storage / Flex Space</td><td>Informal elevated space used for overflow storage or flexible programming as needed.</td></tr>
+              <tr><td>Rear Garden Terrace</td><td>Outdoor Event Terrace</td><td>Direct indoor-outdoor flow through full glazed wall supports seasonal events and community gatherings.</td></tr>
             <tr><td>Basement (1,187 sq ft)</td><td>Storage, Mechanical &amp; Overflow</td><td>Generous basement for all support functions and potential future programming.</td></tr>
           </tbody>
         </table>
@@ -547,22 +666,22 @@
         </div>
 
         <img class="render-hero" id="hero-oslo"
-          src="https://taloplans.ca/wp-content/uploads/2019/04/01-N-201_Oslo_Front-1-1800x1013.jpg"
+          src="images/Oslo/N-201_Arriere-1200x675.jpg"
           alt="Oslo N201 Exterior Rendering" onclick="openLightbox(this.src)">
 
         <div class="thumb-strip" id="strip-oslo">
           <img class="active"
-            src="https://taloplans.ca/wp-content/uploads/2019/04/01-N-201_Oslo_Front-1-230x129.jpg"
-            data-full="https://taloplans.ca/wp-content/uploads/2019/04/01-N-201_Oslo_Front-1-1800x1013.jpg"
+            src="images/Oslo/N-201_Arriere-1200x675.jpg"
+            data-full="images/Oslo/N-201_Arriere-1200x675.jpg"
             alt="Oslo Front" onclick="swapHero('hero-oslo','strip-oslo',this)">
-          <img src="https://taloplans.ca/wp-content/uploads/2019/04/05-N-201_Oslo_Back-1-230x129.jpg"
-            data-full="https://taloplans.ca/wp-content/uploads/2019/04/05-N-201_Oslo_Back-1-1800x1013.jpg"
+          <img src="images/Oslo/N-201_Arriere-1200x675.jpg"
+            data-full="images/Oslo/N-201_Arriere-1200x675.jpg"
             alt="Oslo Rear" onclick="swapHero('hero-oslo','strip-oslo',this)">
-          <img src="https://taloplans.ca/wp-content/uploads/2019/04/07-N-201-Cuisine-230x129.jpg"
-            data-full="https://taloplans.ca/wp-content/uploads/2019/04/07-N-201-Cuisine-1800x1013.jpg"
+          <img src="images/Oslo/N-201_INT_SAM-1200x675.jpg"
+            data-full="images/Oslo/N-201_INT_SAM-1200x675.jpg"
             alt="Oslo Kitchen" onclick="swapHero('hero-oslo','strip-oslo',this)">
-          <img src="https://taloplans.ca/wp-content/uploads/2019/04/06-N-201-Salon-230x129.jpg"
-            data-full="https://taloplans.ca/wp-content/uploads/2019/04/06-N-201-Salon-1800x1013.jpg"
+          <img src="images/Oslo/N-201_INT_Salon-1200x675.jpg"
+            data-full="images/Oslo/N-201_INT_Salon-1200x675.jpg"
             alt="Oslo Living Room" onclick="swapHero('hero-oslo','strip-oslo',this)">
         </div>
 
@@ -594,35 +713,63 @@
           <h4>Floor Plans — Click Any Plan to Enlarge</h4>
         <div class="fp-grid">
           <div class="fp-item">
-            <img src="https://taloplans.ca/wp-content/uploads/2019/04/02-N-201-A-1000x667.jpg" alt="Oslo Ground Floor Plan" onclick="openLightbox(this.src)">
+            <img src="images/Oslo/M-201-A-1200x1133.jpg" alt="Oslo Ground Floor Plan" onclick="openLightbox(this.src)">
               <div class="fp-label">Ground Floor · 1,380 sq ft</div>
             </div>
             <div class="fp-item">
-              <img src="https://taloplans.ca/wp-content/uploads/2019/04/03-N-201-B-1000x667.jpg" alt="Oslo Upper Level Plan" onclick="openLightbox(this.src)">
+              <img src="images/Oslo/M-201-B-1200x1133.jpg" alt="Oslo Upper Level Plan" onclick="openLightbox(this.src)">
               <div class="fp-label">Upper Level · 1,100 sq ft</div>
             </div>
             <div class="fp-item">
-              <img src="https://taloplans.ca/wp-content/uploads/2019/04/04-N-201-C-1000x667.jpg" alt="Oslo Basement Plan" onclick="openLightbox(this.src)">
+              <img src="images/Oslo/04-M-201-C-1200x927.jpg" alt="Oslo Basement Plan" onclick="openLightbox(this.src)">
               <div class="fp-label">Basement · 1,367 sq ft</div>
             </div>
           </div>
         </div>
 
-        <div class="conversion-section">
+        
+      <div class="fp-legend">
+        <div class="fp-legend-title">Ground Floor — Community Function Mapping</div>
+        <table>
+          <tr><td>Double-Height Living Area</td><td>→ Small Lounge</td></tr>
+          <tr><td>Open Kitchen / Dining</td><td>→ Community Kitchen</td></tr>
+          <tr><td>Wraparound Terrace</td><td>→ Outdoor Terrace &amp; Gathering Space</td></tr>
+          <tr><td>Double Garage (550 sq ft)</td><td>→ Small Gym</td></tr>
+        </table>
+      </div>
+
+      <div class="fp-legend">
+        <div class="fp-legend-title">Upper Level — Community Function Mapping</div>
+        <table>
+          <tr><td>Master Suite</td><td>→ M/F Change Rooms</td></tr>
+          <tr><td>Bedroom 2</td><td>→ Community Office</td></tr>
+          <tr><td>Bedroom 3</td><td>→ Storage / Technology Room</td></tr>
+          <tr><td>Bedroom 4</td><td>→ Additional Storage / Flex Space</td></tr>
+          <tr><td>Upper Balcony</td><td>→ Observation Balcony</td></tr>
+        </table>
+      </div>
+
+      <div class="fp-legend">
+        <div class="fp-legend-title">Basement — Community Function Mapping</div>
+        <table>
+          <tr><td>Basement (1,367 sq ft)</td><td>→ Storage, Mechanical &amp; Overflow</td></tr>
+        </table>
+      </div>
+<div class="conversion-section">
           <h4>Community Center Adaptation — Residential-to-Public Conversion Logic</h4>
         <table class="conv-table">
           <thead><tr><th>Residential Room</th><th>Community Function</th><th>Rationale</th></tr></thead>
             <tbody>
-              <tr><td>Double-Height Living Area</td><td>Grand Event Hall</td><td>The dramatic vertical space creates a signature venue for galas, receptions, and performances.</td></tr>
-              <tr><td>Open Kitchen / Dining</td><td>Catering Kitchen &amp; Dining Hall</td><td>Professional-scale kitchen flows into a formal dining zone for community dinners and catered events.</td></tr>
-              <tr><td>Wraparound Terrace</td><td>Outdoor Reception &amp; Lounge</td><td>Expansive terrace supports large outdoor gatherings, cocktail receptions, and seasonal markets.</td></tr>
-            <tr><td>Double Garage (550 sq ft)</td><td>Multi-Purpose Studio</td><td>Large convertible space for fitness classes, art exhibitions, or overflow event seating.</td></tr>
-              <tr><td>Master Suite (upper)</td><td>VIP Lounge / Green Room</td><td>Private suite for event speakers, performers, or VIP reception area.</td></tr>
-            <tr><td>Bedroom 2</td><td>Conference Room</td><td>Formal meeting space for board sessions, planning committees, and community consultations.</td></tr>
-            <tr><td>Bedroom 3</td><td>Creative Studio</td><td>Dedicated space for art workshops, music lessons, or creative programming.</td></tr>
-            <tr><td>Bedroom 4</td><td>Staff Office &amp; Operations</td><td>Back-of-house operations center for facility management and event coordination.</td></tr>
-              <tr><td>Upper Balcony</td><td>Observation Deck</td><td>Overlooks event hall below — ideal for photography, A/V control, or intimate viewing.</td></tr>
-            <tr><td>Basement (1,367 sq ft)</td><td>Storage, Mechanical &amp; Bonus Hall</td><td>Largest basement in the portfolio — ample room for storage and secondary programming.</td></tr>
+              <tr><td>Double-Height Living Area</td><td>Small Lounge</td><td>The dramatic double-height vertical space creates a signature community lounge for informal gatherings and relaxation.</td></tr>
+              <tr><td>Open Kitchen / Dining</td><td>Community Kitchen</td><td>Professional-scale kitchen retained for event catering, refreshment preparation, and community meals with adjacent dining zone.</td></tr>
+              <tr><td>Wraparound Terrace</td><td>Outdoor Terrace &amp; Gathering Space</td><td>Expansive terrace supports outdoor community gatherings, seasonal events, and casual outdoor seating.</td></tr>
+            <tr><td>Double Garage (550 sq ft)</td><td>Small Gym</td><td>Large convertible ground-floor space dedicated to a compact fitness area with exercise equipment.</td></tr>
+              <tr><td>Master Suite (upper)</td><td>M/F Change Rooms</td><td>Private upper-level suite with existing ensuite and walk-in closet reconfigured into separate male and female change rooms with lockers and washroom facilities.</td></tr>
+            <tr><td>Bedroom 2</td><td>Community Office</td><td>Formal upper-level room suitable for administrative operations, scheduling, and facility management.</td></tr>
+            <tr><td>Bedroom 3</td><td>Storage / Technology Room</td><td>Dedicated space for secure equipment storage, AV gear, IT infrastructure, and technology supplies.</td></tr>
+            <tr><td>Bedroom 4</td><td>Additional Storage / Flex Space</td><td>Back-of-house operations space for overflow storage and flexible facility support.</td></tr>
+              <tr><td>Upper Balcony</td><td>Observation Balcony</td><td>Overlooks the lounge below — ideal for AV control, quiet breaks, or visual connection to the main space.</td></tr>
+            <tr><td>Basement (1,367 sq ft)</td><td>Storage, Mechanical &amp; Overflow</td><td>Largest basement in the portfolio — ample room for bulk storage, mechanical systems, and potential secondary programming.</td></tr>
           </tbody>
         </table>
       </div>
